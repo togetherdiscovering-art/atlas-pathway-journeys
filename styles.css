@@ -4,8 +4,8 @@
   --text:#eaf0ff;
   --muted:#a8b3d6;
   --line:rgba(255,255,255,.10);
-  --accent:#7aa2ff;
-  --accent2:#6ef3c5;
+  --accent:#22c55e;
+  --accent2:#60a5fa;
   --shadow: 0 12px 30px rgba(0,0,0,.35);
   --radius:16px;
 }
@@ -142,3 +142,34 @@ input:focus,textarea:focus{border-color:rgba(122,162,255,.5)}
   .pricing-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
   .nav{display:none}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:16px;
+  border:1px solid var(--line);
+  box-shadow: 0 10px 22px rgba(0,0,0,.25);
+  transition: transform .25s ease, filter .25s ease;
+}
+.gallery img:hover{
+  transform: translateY(-4px) scale(1.02);
+  filter: brightness(1.05);
+}
+@media (max-width:900px){
+  .gallery{grid-template-columns:repeat(2,1fr);}
+  .gallery img{height:180px;}
+}
+@keyframes floatIn {
+  from {opacity:0; transform: translateY(12px);}
+  to   {opacity:1; transform: translateY(0);}
+}
+.hero h1, .hero .lead, .hero .cta{
+  animation: floatIn .8s ease both;
+}
+.hero .lead{animation-delay:.1s}
+.hero .cta{animation-delay:.2s}
