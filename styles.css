@@ -212,3 +212,64 @@ input:focus,textarea:focus{border-color:rgba(122,162,255,.5)}
 .logo:hover{
   transform: scale(1.05);
 }
+/* ===== APJ FINAL OVERRIDES (keep at END) ===== */
+
+/* Brand colors (change if you want) */
+:root{
+  --accent:#22c55e;   /* green */
+  --accent2:#60a5fa;  /* blue */
+}
+
+/* HERO image + overlay */
+.hero{
+  background:
+    linear-gradient(180deg, rgba(11,18,32,.78), rgba(6,10,18,.95)),
+    url("images/IMG-20250523-WA0002.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Nice glow animation */
+.hero{ position:relative; overflow:hidden; }
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(34,197,94,.25), transparent 45%),
+    radial-gradient(circle at 70% 40%, rgba(96,165,250,.25), transparent 45%);
+  filter: blur(10px);
+  animation: apjGlow 10s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes apjGlow{
+  from{ transform: translate(-2%, -2%) scale(1); }
+  to  { transform: translate(2%, 2%) scale(1.06); }
+}
+
+/* Keep hero content above overlay */
+.hero .container, .hero-inner{ position:relative; z-index:1; }
+
+/* Entrance animations */
+@keyframes apjFloatIn{
+  from{ opacity:0; transform: translateY(14px); }
+  to  { opacity:1; transform: translateY(0); }
+}
+.hero h1{ animation: apjFloatIn .8s ease both; }
+.hero .lead{ animation: apjFloatIn .8s ease both; animation-delay:.12s; }
+.hero .badges{ animation: apjFloatIn .8s ease both; animation-delay:.22s; }
+.hero .cta{ animation: apjFloatIn .8s ease both; animation-delay:.30s; }
+.hero .hero-card{ animation: apjFloatIn .9s ease both; animation-delay:.20s; }
+
+/* Buttons & cards hover */
+.btn{ transition: transform .18s ease, filter .18s ease; }
+.btn:hover{ transform: translateY(-2px); }
+
+.card, .price-card{
+  transition: transform .22s ease, border-color .22s ease;
+}
+.card:hover, .price-card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(255,255,255,.20);
+}
