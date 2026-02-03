@@ -196,4 +196,19 @@ input:focus,textarea:focus{border-color:rgba(122,162,255,.5)}
 .hero .cta{
   animation: apjFloatIn .8s ease both;
 }
-
+.logo{
+  height:42px;
+  width:auto;
+}
+ /* ===== Brand colors from logo ===== */
+:root{
+  --accent:#1f7a5a;   /* primary from logo */
+  --accent2:#e0b973;  /* secondary from logo */
+}
+  .logo{
+  height:42px;
+  transition: transform .2s ease;
+}
+.logo:hover{
+  transform: scale(1.05);
+}
