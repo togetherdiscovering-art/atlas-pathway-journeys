@@ -173,3 +173,26 @@ input:focus,textarea:focus{border-color:rgba(122,162,255,.5)}
 }
 .hero .lead{animation-delay:.1s}
 .hero .cta{animation-delay:.2s}
+/* ===== APJ FINAL OVERRIDES ===== */
+:root{
+  --accent:#22c55e;
+  --accent2:#60a5fa;
+}
+
+.hero{
+  background:
+    linear-gradient(180deg, rgba(11,18,32,.78), rgba(6,10,18,.95)),
+    url("images/IMG-20250523-WA0002.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+@keyframes apjFloatIn{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero h1,
+.hero .lead,
+.hero .cta{
+  animation: apjFloatIn .8s ease both;
+}
